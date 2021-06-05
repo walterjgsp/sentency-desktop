@@ -9,12 +9,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ui.home.viewmodels.HomeViewModel
 import ui.shared.views.LoadingView
+import ui.theming.Caveat
+import ui.theming.QuoteStyle
 
 @Composable
 fun HomeView(homeViewModel: HomeViewModel) {
@@ -35,8 +39,7 @@ fun HomeView(homeViewModel: HomeViewModel) {
                 "\"${currentQuote?.message}\"",
                 modifier = Modifier.padding(45.dp, 15.dp),
                 textAlign = TextAlign.Center,
-                fontSize = 25.sp,
-                fontStyle = FontStyle.Italic
+                style = QuoteStyle
             )
             Text("By ${currentQuote?.authorName}")
             Spacer(Modifier.height(10.dp))

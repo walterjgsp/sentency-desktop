@@ -21,7 +21,7 @@ fun main() = Window(title = "Sentency Desktop") {
 
     val homeViewModel by injectComposed<HomeViewModel>()
 
-    MaterialTheme() {
+    MaterialTheme {
         HomeView(homeViewModel)
     }
 }
