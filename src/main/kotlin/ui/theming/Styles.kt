@@ -7,3 +7,4 @@ import androidx.compose.ui.unit.sp
 val QuoteStyle = TextStyle(fontFamily = Sacramento,
     fontWeight = FontWeight.W400,
     fontSize = 45.sp)
+

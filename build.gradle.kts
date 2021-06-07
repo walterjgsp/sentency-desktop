@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val koinVersion = "3.0.2"
 val retrofitVersion = "2.9.0"
 val coroutineVersion = "1.5.0"
+val ktorVersion = "1.6.0"
 
 
 plugins {
@@ -25,17 +26,23 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
 
+    // Ktor
+    implementation("io.ktor:ktor-client-core:1.6.0")
+    implementation("io.ktor:ktor-client-cio:1.6.0")
+
     // Core
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
 
     // Koin
-    implementation ("io.insert-koin:koin-core:$koinVersion")
+    implementation("io.insert-koin:koin-core:$koinVersion")
 
     // Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.1"))
-    implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
 
+    // Icons
+    implementation("br.com.devsrsouza.compose.icons.jetbrains:font-awesome:0.2.0")
 }
 
 tasks.test {

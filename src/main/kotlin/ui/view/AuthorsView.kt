@@ -1,8 +1,7 @@
-package ui.authors
+package ui.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -10,8 +9,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import ui.authors.viewmodels.AuthorViewModel
-import ui.shared.views.LoadingView
+import ui.viewmodel.AuthorViewModel
+import ui.view.LoadingView
 
 
 @Composable

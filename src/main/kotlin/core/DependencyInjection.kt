@@ -7,9 +7,8 @@ import domain.provideApi
 import domain.sources.AuthorDataSource
 import domain.sources.QuoteDataSource
 import org.koin.dsl.module
-import ui.authors.viewmodels.AuthorViewModel
-import ui.home.view.HomeView
-import ui.home.viewmodels.HomeViewModel
+import ui.viewmodel.AuthorViewModel
+import ui.viewmodel.HomeViewModel
 
 val core = module {
     single { Config() }

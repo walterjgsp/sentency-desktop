@@ -1,7 +1,7 @@
-package ui.home.models
+package ui.models
 
 data class HomeQuote(
     val id: String,
-    val authorName: String,
+    val author: Author,
     val message: String
 )

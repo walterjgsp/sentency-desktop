@@ -1,4 +1,4 @@
-package ui.shared.views
+package ui.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator

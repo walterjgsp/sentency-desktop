@@ -1,4 +1,4 @@
-package ui.shared.viewmodel
+package ui.viewmodel
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

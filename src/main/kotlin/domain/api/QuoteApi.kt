@@ -1,10 +1,10 @@
 package domain.api
 
-import domain.response.RandomQuoteResponse
+import domain.response.QuoteResponse
 import retrofit2.http.GET
 
 interface QuoteApi {
 
     @GET("quote/random")
-    suspend fun getRandomQuote(): RandomQuoteResponse
+    suspend fun getRandomQuote(): QuoteResponse
 }

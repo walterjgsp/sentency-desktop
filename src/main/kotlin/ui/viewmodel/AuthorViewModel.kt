@@ -1,11 +1,10 @@
-package ui.authors.viewmodels
+package ui.viewmodel
 
 import domain.sources.AuthorDataSource
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
-import ui.authors.models.Author
-import ui.shared.viewmodel.BaseViewModel
+import ui.models.Author
 
 class AuthorViewModel(private val authorDataSource: AuthorDataSource) : BaseViewModel() {
 
