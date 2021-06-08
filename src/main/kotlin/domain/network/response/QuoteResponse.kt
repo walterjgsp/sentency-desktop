@@ -1,7 +1,7 @@
-package domain.response
+package domain.network.response
 
 import com.google.gson.annotations.SerializedName
-import ui.models.HomeQuote
+import ui.models.Quote
 
 data class QuoteResponse(
     @SerializedName("id") val id: String,
@@ -10,5 +10,5 @@ data class QuoteResponse(
     @SerializedName("timestamp") val timestamp: Long,
     @SerializedName("author") val author: AuthorResponse
 ) {
-    fun toHomeQuote(): HomeQuote = HomeQuote(id, author.toAuthor(), message)
+    fun toHomeQuote(): Quote = Quote(id, author.toAuthor(), message)
 }

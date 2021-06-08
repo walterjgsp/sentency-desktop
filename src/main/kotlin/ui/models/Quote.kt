@@ -1,6 +1,6 @@
 package ui.models
 
-data class HomeQuote(
+data class Quote(
     val id: String,
     val author: Author,
     val message: String

@@ -1,24 +1,44 @@
-import androidx.compose.animation.Crossfade
 import androidx.compose.desktop.Window
-import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.IntSize
 import core.*
 import org.koin.core.context.GlobalContext.startKoin
-import ui.screen.HomeScreen
+import ui.components.Navigation
+import ui.viewmodel.NavigationViewModel
 
-fun main() = Window(title = "Sentency Desktop") {
+fun main() = Window(
+    title = "Sentency Desktop",
+    resizable = false,
+    size = IntSize(800, 800)
+) {
+
+    val navigationViewModel by injectComposed<NavigationViewModel>()
 
     initKoin()
 
     MaterialTheme {
-        HomeScreen()
+
+        val selectedScreen by navigationViewModel.selectedScreen.collectAsState()
+
+        Column(Modifier.fillMaxHeight()) {
+            Box(modifier = Modifier.weight(3f)) {
+                selectedScreen.screen()
+            }
+            Box {
+                Navigation(navigationViewModel)
+            }
+        }
     }
 }
 
 private fun initKoin() {
     startKoin {
         printLogger()
-        modules(core, network, viewModels, sources)
+        modules(core, network, database, viewModels, sources)
     }
 }

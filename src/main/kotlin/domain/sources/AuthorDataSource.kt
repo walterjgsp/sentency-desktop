@@ -1,6 +1,6 @@
 package domain.sources
 
-import domain.api.AuthorApi
+import domain.network.api.AuthorApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import ui.models.Author

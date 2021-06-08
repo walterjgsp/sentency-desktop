@@ -1,6 +1,6 @@
-package domain.api
+package domain.network.api
 
-import domain.response.QuoteResponse
+import domain.network.response.QuoteResponse
 import retrofit2.http.GET
 
 interface QuoteApi {

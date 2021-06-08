@@ -1,8 +1,7 @@
-package domain.api
+package domain.network.api
 
-import domain.response.AuthorResponse
-import domain.response.PaginatedResponse
-import retrofit2.Retrofit
+import domain.network.response.AuthorResponse
+import domain.network.response.PaginatedResponse
 import retrofit2.http.GET
 
 interface AuthorApi {

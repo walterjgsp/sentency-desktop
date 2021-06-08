@@ -6,6 +6,7 @@ val koinVersion = "3.0.2"
 val retrofitVersion = "2.9.0"
 val coroutineVersion = "1.5.0"
 val ktorVersion = "1.6.0"
+val kodeinDbVersion = "0.8.1-beta"
 
 
 plugins {
@@ -43,6 +44,12 @@ dependencies {
 
     // Icons
     implementation("br.com.devsrsouza.compose.icons.jetbrains:font-awesome:0.2.0")
+
+    // Kodein-DB
+    implementation("org.kodein.db:kodein-db-jvm:$kodeinDbVersion")
+    implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:$kodeinDbVersion")
+    implementation("org.kodein.db:kodein-leveldb-jni-jvm:$kodeinDbVersion")
+
 }
 
 tasks.test {

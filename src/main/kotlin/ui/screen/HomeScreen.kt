@@ -1,14 +1,31 @@
 package ui.screen
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.runtime.Composable
-import core.injectComposed
+
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import ui.view.HomeView
+import ui.view.LoadingView
 import ui.viewmodel.HomeViewModel
 
-@Composable
-fun HomeScreen() {
+class HomeScreen : BaseScreen, KoinComponent {
 
-    val homeViewModel by injectComposed<HomeViewModel>()
+    private val homeViewModel: HomeViewModel by inject()
 
-    HomeView(homeViewModel)
+    @Composable
+    override fun screen() {
+
+        val loading by homeViewModel.loading.collectAsState()
+
+        Crossfade(targetState = loading) { isLoading ->
+            when (isLoading) {
+                true -> LoadingView()
+                else -> HomeView(homeViewModel)
+            }
+        }
+    }
 }
+
