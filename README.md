@@ -2,7 +2,7 @@
 <div align="center">
     <h1 align="center">Sentency Desktop</h1>
     <h5>Project Sentency</h5>
-    <img  width="50" height="50" src="./icon.svg">
+    <img  width="80" height="80" src="./icon.svg">
 </div>
 
 Desktop app for the Sentency project using Jetpack Compose
