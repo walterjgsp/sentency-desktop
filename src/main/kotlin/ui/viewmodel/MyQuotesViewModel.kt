@@ -16,4 +16,13 @@ class MyQuotesViewModel(private val quoteDataSource: QuoteDataSource) : BaseView
             savedQuotes.value = quotes
         }
     }
+
+    fun deleteQuote(quote: Quote) {
+        scope.launch {
+            quoteDataSource.deleteById(quote.id)
+            with(savedQuotes.value) {
+                savedQuotes.value = this.filter { it.id != quote.id }
+            }
+        }
+    }
 }

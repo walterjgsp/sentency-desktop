@@ -7,9 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
-import org.kodein.db.DB
-import org.kodein.db.asModelSequence
-import org.kodein.db.find
+import org.kodein.db.*
 import ui.models.Author
 import ui.models.Quote
 import java.lang.RuntimeException
@@ -24,7 +22,8 @@ class QuoteDataSource(private val quoteApi: QuoteApi, private val db: DB) {
         val authorKey = db.put(
             AuthorDB(
                 id = quote.author.id,
-                name = quote.author.name
+                name = quote.author.name,
+                picUrl = quote.author.picUrl
             )
         )
         db.put(QuoteDB(quote.id, quote.message, authorKey))
@@ -35,6 +34,11 @@ class QuoteDataSource(private val quoteApi: QuoteApi, private val db: DB) {
         val count = cursor.asModelSequence().count()
         cursor.close()
         return count
+    }
+
+    suspend fun deleteById(id: String) {
+        val quote = db.keyById<QuoteDB>(id)
+        db.delete(quote)
     }
 
     suspend fun getSavedQuotes(): List<Quote> {

@@ -32,7 +32,9 @@ class MyQuotesScreen : BaseScreen, KoinComponent {
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 items(quotes) { quote ->
-                    QuoteCard(quote)
+                    QuoteCard(quote) {
+                        myQuotesViewModel.deleteQuote(quote)
+                    }
                 }
             }
         }

@@ -6,6 +6,7 @@ import core.loadPicture
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 
@@ -14,7 +15,7 @@ data class Author(
     val name: String,
     val picUrl: String? = null,
 ) {
-    var pic: ImageBitmap = imageFromResource("images/profile.png")
+    var pic: MutableStateFlow<ImageBitmap> = MutableStateFlow(imageFromResource("images/profile.png"))
         private set
 
     private val scope: CoroutineScope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
@@ -22,7 +23,7 @@ data class Author(
     init {
         scope.launch {
             picUrl?.loadPicture()?.let {
-                pic = it
+                pic.value = it
             }
         }
     }
