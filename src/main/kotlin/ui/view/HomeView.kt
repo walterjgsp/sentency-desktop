@@ -15,7 +15,7 @@ import compose.icons.fontawesomeicons.solid.Star
 import ui.components.AuthorCard
 import ui.theming.Purple500
 import ui.viewmodel.HomeViewModel
-import ui.theming.QuoteStyle
+import ui.theming.quoteStyle
 
 @Composable
 fun HomeView(homeViewModel: HomeViewModel) {
@@ -33,7 +33,7 @@ fun HomeView(homeViewModel: HomeViewModel) {
                 "\"${quote.message}\"",
                 modifier = Modifier.padding(45.dp, 15.dp),
                 textAlign = TextAlign.Center,
-                style = QuoteStyle
+                style = quoteStyle(45)
             )
             AuthorCard(author = quote.author)
             Spacer(Modifier.height(50.dp))

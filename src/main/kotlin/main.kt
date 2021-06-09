@@ -5,16 +5,20 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.imageFromResource
 import androidx.compose.ui.unit.IntSize
 import core.*
 import org.koin.core.context.GlobalContext.startKoin
 import ui.components.Navigation
 import ui.viewmodel.NavigationViewModel
+import java.io.File
+import javax.imageio.ImageIO
 
 fun main() = Window(
     title = "Sentency Desktop",
     resizable = false,
-    size = IntSize(800, 800)
+    size = IntSize(800, 600),
+    icon = ImageIO.read(File("./src/main/resources/images/logo.png"))
 ) {
 
     val navigationViewModel by injectComposed<NavigationViewModel>()
