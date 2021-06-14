@@ -13,7 +13,7 @@ import ui.viewmodel.MyQuotesViewModel
 import ui.viewmodel.NavigationViewModel
 
 val core = module {
-    single { Config() }
+    single { Environment() }
 }
 
 val network = module {

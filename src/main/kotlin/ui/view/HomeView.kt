@@ -2,16 +2,15 @@ package ui.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import compose.icons.FontAwesomeIcons
-import compose.icons.fontawesomeicons.Solid
-import compose.icons.fontawesomeicons.solid.ArrowRight
-import compose.icons.fontawesomeicons.solid.Star
 import ui.components.AuthorCard
 import ui.theming.Purple500
 import ui.viewmodel.HomeViewModel
@@ -47,7 +46,7 @@ fun HomeView(homeViewModel: HomeViewModel) {
                     contentColor = Color.White,
                 ) {
                     Icon(
-                        FontAwesomeIcons.Solid.Star,
+                        Icons.Default.Star,
                         "Save quote",
                         modifier = Modifier.size(20.dp, 20.dp),
                     )
@@ -62,7 +61,7 @@ fun HomeView(homeViewModel: HomeViewModel) {
                     contentColor = Color.White
                 ) {
                     Icon(
-                        FontAwesomeIcons.Solid.ArrowRight,
+                        Icons.Default.ArrowForward,
                         "Next quote",
                         modifier = Modifier.size(20.dp, 20.dp),
                     )

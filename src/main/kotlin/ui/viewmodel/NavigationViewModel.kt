@@ -1,9 +1,8 @@
 package ui.viewmodel
 
-import compose.icons.FontAwesomeIcons
-import compose.icons.fontawesomeicons.Solid
-import compose.icons.fontawesomeicons.solid.Database
-import compose.icons.fontawesomeicons.solid.Home
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.List
 import kotlinx.coroutines.flow.MutableStateFlow
 import ui.models.NavigationItem
 import ui.screen.BaseScreen
@@ -13,8 +12,8 @@ import ui.screen.MyQuotesScreen
 class NavigationViewModel : BaseViewModel() {
 
     val navigationMenu: List<NavigationItem> = listOf(
-        NavigationItem(text = "Home", icon = FontAwesomeIcons.Solid.Home, screen = HomeScreen()),
-        NavigationItem(text = "Quotes", icon = FontAwesomeIcons.Solid.Database, screen = MyQuotesScreen())
+        NavigationItem(text = "Home", icon = Icons.Default.Home, screen = HomeScreen()),
+        NavigationItem(text = "Quotes", icon = Icons.Default.List, screen = MyQuotesScreen())
     )
 
     val selectedItem: MutableStateFlow<Int> = MutableStateFlow(0)

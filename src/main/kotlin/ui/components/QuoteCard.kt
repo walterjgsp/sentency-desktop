@@ -4,6 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -15,9 +17,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import compose.icons.FontAwesomeIcons
-import compose.icons.fontawesomeicons.Solid
-import compose.icons.fontawesomeicons.solid.Trash
 import ui.models.Quote
 import ui.theming.Purple500
 
@@ -27,9 +26,6 @@ fun QuoteCard(quote: Quote, onDeleteClicked: () -> Unit) {
     val authorPic by quote.author.pic.collectAsState()
 
     Card {
-//        Box(modifier = Modifier.fillMaxSize()){
-
-//        }
         Column(modifier = Modifier.fillMaxWidth().padding(10.dp)) {
             Text(
                 quote.message,
@@ -50,9 +46,9 @@ fun QuoteCard(quote: Quote, onDeleteClicked: () -> Unit) {
                         onDeleteClicked()
                     }, modifier = Modifier.padding(0.dp)) {
                         Icon(
-                            FontAwesomeIcons.Solid.Trash,
+                            Icons.Default.Delete,
                             "Delete quote",
-                            modifier = Modifier.size(15.dp, 15.dp).padding(0.dp),
+                            modifier = Modifier.size(24.dp, 24.dp).padding(0.dp),
                             tint = Purple500
                         )
                     }

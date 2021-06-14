@@ -10,8 +10,8 @@ val kodeinDbVersion = "0.8.1-beta"
 
 
 plugins {
-    kotlin("jvm") version "1.4.30"
-    id("org.jetbrains.compose") version "0.3.1"
+    kotlin("jvm") version "1.5.10"
+    id("org.jetbrains.compose") version "0.4.0"
 }
 
 group = "org.sentency.desktop"
@@ -42,14 +42,13 @@ dependencies {
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.1"))
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
 
-    // Icons
-    implementation("br.com.devsrsouza.compose.icons.jetbrains:font-awesome:0.2.0")
-
     // Kodein-DB
     implementation("org.kodein.db:kodein-db-jvm:$kodeinDbVersion")
     implementation("org.kodein.db:kodein-db-serializer-kryo-jvm:$kodeinDbVersion")
     implementation("org.kodein.db:kodein-leveldb-jni-jvm:$kodeinDbVersion")
 
+    // Config
+    implementation("com.typesafe:config:1.4.1")
 }
 
 tasks.test {
@@ -57,7 +56,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile>() {
-    kotlinOptions.jvmTarget = "13"
+    kotlinOptions.jvmTarget = "16"
 }
 
 compose.desktop {
@@ -65,8 +64,12 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "sentency-desktop"
+            packageName = "Sentency Desktop"
             packageVersion = "1.0.0"
+
+            macOS {
+                iconFile.set(project.file("images/logo.icns"))
+            }
         }
     }
 }
